@@ -57,7 +57,7 @@ func parseNodes(lines []string) ([]domain.Node, error) {
 }
 
 func parseSysInfo(lines []string) ([]sysInfoEntry, error) {
-	if len(lines) > 2 {
+	if len(lines) < 2 {
 		return nil, nil
 	}
 

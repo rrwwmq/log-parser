@@ -54,4 +54,4 @@ logparser-run:
 	@export LOGGER_FOLDER=${PROJECT_ROOT}/out/logs && \
 	export POSTGRES_HOST=localhost && \
 	go mod tidy && \
-	go run ${PROJECT_ROOT}/cmd/logparser/main.go
+	go run ${PROJECT_ROOT}/cmd/log-parser/main.go
