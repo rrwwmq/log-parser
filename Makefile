@@ -12,7 +12,7 @@ env-down:
 env-cleanup:
 	@read -p "Do you want to clean all volume files? [y/N]: " ans; \
 	if [ "$$ans" = "y" ]; then \
-		docker compose down log-parser-postgres port-forwarder && rm -rf ${PROJECT_ROOT}/out/pgdata && echo "Files was cleaned"; \
+		docker compose down log-parser-postgres port-forwarder && rm -rf ./out/pgdata && echo "Files was cleaned"; \
 	else \
 		echo "clean up env was cancelled"; \
 	fi
@@ -49,6 +49,12 @@ migrate-action:
 		-path /migrations \
 		-database postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@log-parser-postgres:5432/${POSTGRES_DB}?sslmode=disable \
 		"$(action)"
+
+app-up:
+	@docker compose up -d --build app
+
+app-down:
+	@docker compose down app
 
 logparser-run:
 	@export LOGGER_FOLDER=${PROJECT_ROOT}/out/logs && \
