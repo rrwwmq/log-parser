@@ -1,0 +1,79 @@
+{
+  "info": {
+    "name": "Log Parser API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8080/api/v1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Parse log",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/parse",
+          "host": ["{{base_url}}"],
+          "path": ["parse"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"file_path\": \"data/log.zip\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Get log",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/log/1",
+          "host": ["{{base_url}}"],
+          "path": ["log", "1"]
+        }
+      }
+    },
+    {
+      "name": "Get topology",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/topology/1",
+          "host": ["{{base_url}}"],
+          "path": ["topology", "1"]
+        }
+      }
+    },
+    {
+      "name": "Get node",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/node/1",
+          "host": ["{{base_url}}"],
+          "path": ["node", "1"]
+        }
+      }
+    },
+    {
+      "name": "Get ports",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/port/1",
+          "host": ["{{base_url}}"],
+          "path": ["port", "1"]
+        }
+      }
+    }
+  ]
+}
